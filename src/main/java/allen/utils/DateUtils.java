@@ -216,4 +216,15 @@ public class DateUtils {
         return ret;
     }
 
+    /**
+     * 到第二天0点的时间间隔
+     * @param date
+     * @return
+     */
+    public static long getMilliSecondToTomorrow(Date date){
+        String today = formatDD(date);
+        Date today0 = parseDD(today);
+        return (86400000 - (date.getTime() - today0.getTime() ));
+    }
+
 }
