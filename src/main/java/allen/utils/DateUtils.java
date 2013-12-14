@@ -11,53 +11,67 @@ public class DateUtils {
         @Override
         protected SimpleDateFormat initialValue() {
             return new SimpleDateFormat("yyyy-MM-dd");
-        };
+        }
+
+        ;
 
     };
     private final static ThreadLocal<SimpleDateFormat> YYYY_MM_DD_HH_MM_FORMAT = new ThreadLocal<SimpleDateFormat>() {
         @Override
         protected SimpleDateFormat initialValue() {
             return new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        };
+        }
+
+        ;
     };
     private final static ThreadLocal<SimpleDateFormat> YYYY_MM_DD_HH_MM_SS_FORMAT = new ThreadLocal<SimpleDateFormat>() {
         @Override
         protected SimpleDateFormat initialValue() {
             return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        };
+        }
+
+        ;
     };
 
     private final static ThreadLocal<SimpleDateFormat> HH_MM_SS_FORMAT = new ThreadLocal<SimpleDateFormat>() {
         @Override
         protected SimpleDateFormat initialValue() {
             return new SimpleDateFormat("HH:mm:ss");
-        };
+        }
+
+        ;
     };
 
     private final static ThreadLocal<SimpleDateFormat> YYYY_MM_CHINESE = new ThreadLocal<SimpleDateFormat>() {
         @Override
         protected SimpleDateFormat initialValue() {
             return new SimpleDateFormat("yyyy年MM月");
-        };
+        }
+
+        ;
 
     };
     private final static ThreadLocal<SimpleDateFormat> YYYY_MM_FORMAT = new ThreadLocal<SimpleDateFormat>() {
         @Override
         protected SimpleDateFormat initialValue() {
             return new SimpleDateFormat("yyyy-MM");
-        };
+        }
+
+        ;
     };
 
     private final static ThreadLocal<SimpleDateFormat> M_D = new ThreadLocal<SimpleDateFormat>() {
         @Override
         protected SimpleDateFormat initialValue() {
             return new SimpleDateFormat("M.d");
-        };
+        }
+
+        ;
     };
 
     /**
      * yyyy-MM-dd HH:mm
-     * 
+     *
      * @param dateStr
      * @return
      * @throws ParseException
@@ -72,7 +86,7 @@ public class DateUtils {
 
     /**
      * yyyy-MM-dd HH:mm
-     * 
+     *
      * @param date
      * @return
      */
@@ -86,7 +100,7 @@ public class DateUtils {
 
     /**
      * yyyy-MM-dd HH:mm:ss
-     * 
+     *
      * @param dateStr
      * @return
      * @throws ParseException
@@ -101,7 +115,7 @@ public class DateUtils {
 
     /**
      * yyyy-MM-dd HH:mm:ss
-     * 
+     *
      * @param date
      * @return
      */
@@ -118,7 +132,7 @@ public class DateUtils {
 
     /**
      * yyyy-MM-dd
-     * 
+     *
      * @param dateStr
      * @return
      * @throws ParseException
@@ -133,7 +147,7 @@ public class DateUtils {
 
     /**
      * yyyy-MM-dd
-     * 
+     *
      * @param date
      * @return
      */
@@ -142,11 +156,9 @@ public class DateUtils {
     }
 
     /**
-     * 
-     * @param offsetDays
-     *            当前时间的偏移：-2前天，-1昨天，0今天，1明天，2后天
-     * @author yangxuehua
+     * @param offsetDays 当前时间的偏移：-2前天，-1昨天，0今天，1明天，2后天
      * @return yyyy-MM-dd
+     * @author yangxuehua
      */
     public static String getYYYY_MM_DD(int offsetDays) {
         Calendar calendar = Calendar.getInstance();
@@ -157,11 +169,9 @@ public class DateUtils {
     }
 
     /**
-     * 
-     * @param offsetDays
-     *            当前时间的偏移：-2前天，-1昨天，0今天，1明天，2后天
-     * @author yangxuehua
+     * @param offsetDays 当前时间的偏移：-2前天，-1昨天，0今天，1明天，2后天
      * @return M.d or 明天(M.d)
+     * @author yangxuehua
      */
     public static String getDisplayName(int offsetDays) {
         Calendar calendar = Calendar.getInstance();
@@ -170,18 +180,18 @@ public class DateUtils {
         Date date = calendar.getTime();
         String m_d = M_D.get().format(date);// e.g：5.2
         switch (offsetDays) {
-        case -2:
-            return "前天(" + m_d + ")";
-        case -1:
-            return "昨天(" + m_d + ")";
-        case 0:
-            return "今天(" + m_d + ")";
-        case 1:
-            return "明天(" + m_d + ")";
-        case 2:
-            return "后天(" + m_d + ")";
-        default:
-            return m_d;
+            case -2:
+                return "前天(" + m_d + ")";
+            case -1:
+                return "昨天(" + m_d + ")";
+            case 0:
+                return "今天(" + m_d + ")";
+            case 1:
+                return "明天(" + m_d + ")";
+            case 2:
+                return "后天(" + m_d + ")";
+            default:
+                return m_d;
         }
     }
 
@@ -218,13 +228,14 @@ public class DateUtils {
 
     /**
      * 到第二天0点的时间间隔
+     *
      * @param date
      * @return
      */
-    public static long getMilliSecondToTomorrow(Date date){
+    public static long getMilliSecondToTomorrow(Date date) {
         String today = formatDD(date);
         Date today0 = parseDD(today);
-        return (86400000 - (date.getTime() - today0.getTime() ));
+        return (86400000 - (date.getTime() - today0.getTime()));
     }
 
 }
