@@ -35,7 +35,7 @@ public class RegexUtils {
     }
 
     public static void main(String[] args) {
-        List<String> pick = pick("\"http://meituan.com/呵呵\"", "[\\u4e00-\\u9fbb]+");
+        List<String> pick = pick("\"http://cnbeta.com/呵呵\"", "[\\u4e00-\\u9fbb]+");
         for (String s : pick) {
             System.out.println(s);
         }
